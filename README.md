@@ -1,54 +1,52 @@
-# MadhuCrewai Crew
+# Crew AI
+# INSTALLATION PROCESS:
+# 1.1] Python Version Requirements:
+python3 –version [Python 3.11.9]
+# 1.2] UV 
+CrewAI uses the uv as its dependency management and package handling tool.
+On Windows:
+Use irm to download the script and iex to execute it:
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+-Extract and place the uv.exe folder path to your system PATH.
+# 1.3] Install CrewAI:
+uv --version [uv 0.7.3]
+uv venv .venv
+uv pip install crewai  
+Note: If you encounter a PATH warning, run this command to update your shell: 
+uv tool update-shell 
+# 1.4] To verify that crewai is installed 
+venv> uv tool list
+crewai v0.118.0
+- crewai.exe
+-If you need to update crewai, run: uv tool install crewai –upgrade
+# Creating a CrewAI Project
+# 2.1] Generate Project Scaffolding
+crewai create crew <folder_name>
+[select based on your requirement]
+Select a provider to set up: ollama
+Select a model to use for Ollama:
+Selected model: ollama/llama3.1
+Crew madhu_crewai created successfully!
+Customize Your Project
+our project will contain these essential files:
+File	Purpose
+aents.yaml	AI agents and their roles [Role, goal, backstory]
+tasks.yaml	Set up agent tasks and workflows [task, description, agent]
+.env	It stores API keys and environment variables [Model, API Base]
+main.py	Project entry point and execution flow [any input]
+crew.py	Crew orchestration and coordination [agent, task, crew]
 
-Welcome to the MadhuCrewai Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
-
-## Installation
-
-Ensure you have Python >=3.10 <3.13 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
-
-First, if you haven't already, install uv:
-
-```bash
-pip install uv
-```
-
-Next, navigate to your project directory and install the dependencies:
-
-(Optional) Lock the dependencies and install them by using the CLI command:
-```bash
+# 2.2] Navigate to your new crew project < madhu_crewai>
+Go to your folder < madhu_crewai >  
+And change agents. yaml, tasks. yaml, main.py, crew.py, .env,
+then run
 crewai install
-```
-### Customizing
+# 2.3] Set your environment variables
+OPENAI_API_KEY= <YOUR_API_KEY>
+SERPER_API_KEY=<YOUR_SERPER_KEY>
 
-**Add your `OPENAI_API_KEY` into the `.env` file**
+# 2.4] Install the dependencies
+- crewai install
+# 2.5] Run your crew
+-crewai run
 
-- Modify `src/madhu_crewai/config/agents.yaml` to define your agents
-- Modify `src/madhu_crewai/config/tasks.yaml` to define your tasks
-- Modify `src/madhu_crewai/crew.py` to add your own logic, tools and specific args
-- Modify `src/madhu_crewai/main.py` to add custom inputs for your agents and tasks
-
-## Running the Project
-
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
-
-```bash
-$ crewai run
-```
-
-This command initializes the madhu_crewai Crew, assembling the agents and assigning them tasks as defined in your configuration.
-
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
-
-## Understanding Your Crew
-
-The madhu_crewai Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
-
-## Support
-
-For support, questions, or feedback regarding the MadhuCrewai Crew or crewAI.
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
-
-Let's create wonders together with the power and simplicity of crewAI.
